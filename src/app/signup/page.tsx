@@ -1,8 +1,9 @@
 import SignupCard from "../components/signup/Signup";
+import "../home.css";
 
 export default function Signup() {
     return (
-        <div className="signin flex items-center grow justify-center content">
+        <div className="home__cover signin flex items-center grow justify-center h-lvh w-full">
             <SignupCard />
         </div>
     );
