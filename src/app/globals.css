@@ -22,6 +22,10 @@ html {
   color-scheme: dark;
 }
 
+html, body {
+  min-height: 100lvh;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

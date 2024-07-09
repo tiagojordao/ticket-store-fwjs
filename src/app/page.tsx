@@ -1,8 +1,23 @@
+'use client';
+
+import { getEvents } from './services/apiService';
 import EventCard from "./components/event-card/EventCard";
 
 import "./home.css";
+import { useEffect } from 'react';
 
 export default function Home() {
+
+  const handleClick = (id: number) => {
+    alert(`Button clicked in ChildComponent with ID: ${id}`);
+  };
+
+  useEffect(() => {
+    const events = getEvents();
+    console.log("aklsjfas");
+    console.log("lalalala " + events);
+  }, []);
+
   return (
     <>
       <div className="home__cover flex items-center justify-center h-lvh bg-white/10">
@@ -27,12 +42,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="home__event-list w-full content h-lvh py-10">
+      <div className="home__event-list w-full content pt-16 pb-32">
         <h2 className="home__event-title font-bold text-2xl mb-10">Last Events</h2>
         <div className="w-full grid grid-cols-3 grid-flow-row gap-2 justify-items-center">
-          <EventCard name="Presentations" date="07/10/2024" isAvailable={true} />
-          <EventCard name="Exams" date="07/10/2024" isAvailable={true} />
-          <EventCard name="Frontend Lectures" date="07/10/2024" isAvailable={true} />
+          <EventCard id={1} name="Presentations" date="07/10/2024" image="event-image.avif" handleSubscribe={handleClick} isAvailable={true} />
+          <EventCard id={2} name="Presentations" date="07/10/2024" image="event-image.avif" handleSubscribe={handleClick} isAvailable={true} />
+          <EventCard id={3} name="Presentations" date="07/10/2024" image="event-image.avif" handleSubscribe={handleClick} isAvailable={true} />
         </div>
       </div>
     </>
