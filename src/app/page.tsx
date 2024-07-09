@@ -6,6 +6,8 @@ import EventCard from "./components/event-card/EventCard";
 import "./home.css";
 import { useEffect } from 'react';
 
+
+/* eslint-disable @next/next/no-img-element */
 export default function Home() {
 
   const handleClick = (id: number) => {
@@ -13,16 +15,17 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const events = getEvents();
-    console.log("aklsjfas");
-    console.log("lalalala " + events);
+    try {
+      const events = getEvents();
+    } catch(error) {
+      throw error;
+    }
   }, []);
 
   return (
     <>
       <div className="home__cover flex items-center justify-center h-lvh bg-white/10">
         <img src="./logo1.svg" height="1000" width="1000" alt="Logo Image" />
-        
       </div>
 
       <div className="about-ticket-online w-full py-16 bg-rose-600">
