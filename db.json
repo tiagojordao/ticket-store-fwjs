@@ -1,46 +1,52 @@
 {
-    "user": [
-        {
-            "id": 1,
-            "name": "John Doe",
-            "email": "johndoe@gmail.com",
-            "password": "123"
-        },
-        {
-            "id": 2,
-            "name": "John Doe",
-            "email": "johndoe@gmail.com",
-            "password": "1234"
-        }
-    ],
-    "events": [
-        {
-            "id": 1,
-            "name": "Event name 1",
-            "date": "07/10/2024",
-            "image": "event-image.avif",
-            "isAvailable": true
-        },
-        {
-            "id": 2,
-            "name": "Event name 2",
-            "date": "07/10/2024",
-            "image": "event-image.avif",
-            "isAvailable": true
-        },
-        {
-            "id": 3,
-            "name": "Event name 3",
-            "date": "07/10/2024",
-            "image": "event-image.avif",
-            "isAvailable": true
-        }
-    ],
-    "userEvents": [
-        {
-            "userId": 1,
-            "eventId": 1
-        }
-
-    ]
+  "user": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "name": "John Doe",
+      "email": "johndoee@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "ffd6",
+      "name": "Tiago",
+      "email": "email@gmail.com",
+      "password": "123"
+    }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "name": "Event name 1",
+      "date": "07/10/2024",
+      "image": "event-image.avif",
+      "isAvailable": true
+    },
+    {
+      "id": "2",
+      "name": "Event name 2",
+      "date": "07/10/2024",
+      "image": "event-image.avif",
+      "isAvailable": true
+    },
+    {
+      "id": "3",
+      "name": "Event name 3",
+      "date": "07/10/2024",
+      "image": "event-image.avif",
+      "isAvailable": true
+    }
+  ],
+  "userEvents": [
+    {
+      "userId": 1,
+      "eventId": 1,
+      "id": "ee1a"
+    }
+  ]
 }
