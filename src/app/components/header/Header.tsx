@@ -3,7 +3,7 @@ export default function Header() {
         <nav className="w-full fixed top-0 right-0 z-50">
             <div className="content flex justify-between items-center border-b-[.1px] border-white/30 px-5">
                 <span>
-                    <h2 className="font-bold">TICKET ONLINE</h2>
+                    <img src="./ticket.svg" height="100" width="100" alt="Logo Image" />
                 </span>
                 <span className="flex items-center gap-x-4">
                     <a href="/" className="py-4 px-2 font-thin hover:bg-rose-700/70">HOME</a>

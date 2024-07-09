@@ -6,7 +6,8 @@ export default function Home() {
   return (
     <>
       <div className="home__cover flex items-center justify-center h-lvh bg-white/10">
-        <h2>TICKET LOGO</h2>
+        <img src="./logo1.svg" height="1000" width="1000" alt="Logo Image" />
+        
       </div>
 
       <div className="about-ticket-online w-full py-16 bg-rose-600">
