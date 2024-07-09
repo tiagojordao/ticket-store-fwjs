@@ -1,20 +1,43 @@
-import { useState } from "react";
+'use client';
 
-export interface SigninProps {
-    auth: (email: string, password: string) => void;
-}
+import { useEffect, useState } from "react";
+import { authenticate } from "@/app/services/apiService";
 
 
-export default function SigninCard(props: SigninProps) {
+export default function SigninCard() {
 
+    const [id, setId] = useState<string>();
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
-    const sendAuth = (email: string, password: string) => {
-        console.log("email: " + email);
-        console.log("password: " + password);
-        props.auth(email, password);
-    }
+    const auth = (email: string, password: string) => {
+        authenticate(email, password)
+        .then(users => {
+          users.map((user: { id: string, email: string; password: string; }) => {
+            if(user.email === email) {
+                if(user.password === password){
+                    setId(user.id);
+                    return user;
+                }
+            }
+          })
+        })
+        .catch(error => {
+          throw error;
+        })
+
+        redirecitIfSuccess();
+    };
+
+    useEffect(() => {
+        console.log("ID: " + id);
+    }, [id]);
+
+    const redirecitIfSuccess = () => {
+        if(id) {
+            console.log("ID: " + id);
+        }
+    };
 
     return (
         <div className="signin__card bg-transparent max-w-80 w-full rounded p-6">
@@ -43,7 +66,7 @@ export default function SigninCard(props: SigninProps) {
                         mb-6"
                 />
                 <button type="submit" className="bg-rose-600 text-white w-full rounded hover:bg-rose-800 py-2" 
-                    onSubmit={() => sendAuth(email, password)}
+                    onSubmit={() => auth(email, password)}
                 >
                     SIGN IN
                 </button>
