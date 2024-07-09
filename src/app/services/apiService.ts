@@ -12,10 +12,12 @@ export const authenticate = async (email: string, password: string) => {
 };
 
 export const getEvents = async () => {
-    try {
-        const response = await axios.get(`${API_URL}/events`);
-        return response;
-    } catch(error) {
-        throw error;
-    }
+    return await axios.get(`${API_URL}/events`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.error('Error fetching posts:', error);
+      throw error;
+    });
 }

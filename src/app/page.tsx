@@ -4,22 +4,31 @@ import { getEvents } from './services/apiService';
 import EventCard from "./components/event-card/EventCard";
 
 import "./home.css";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { EventModel } from './models/EventModel';
 
 
 /* eslint-disable @next/next/no-img-element */
 export default function Home() {
+
+  const [events, setEvents] = useState<EventModel[]>();
 
   const handleClick = (id: number) => {
     alert(`Button clicked in ChildComponent with ID: ${id}`);
   };
 
   useEffect(() => {
-    try {
-      const events = getEvents();
-    } catch(error) {
-      throw error;
+    const getData = () => {
+      getEvents()
+      .then(events => {
+        setEvents(events);
+      })
+      .catch(error => {
+        throw error;
+      })
     }
+
+    getData();
   }, []);
 
   return (
@@ -48,9 +57,21 @@ export default function Home() {
       <div className="home__event-list w-full content pt-16 pb-32">
         <h2 className="home__event-title font-bold text-2xl mb-10">Last Events</h2>
         <div className="w-full grid grid-cols-3 grid-flow-row gap-2 justify-items-center">
-          <EventCard id={1} name="Presentations" date="07/10/2024" image="event-image.avif" handleSubscribe={handleClick} isAvailable={true} />
-          <EventCard id={2} name="Presentations" date="07/10/2024" image="event-image.avif" handleSubscribe={handleClick} isAvailable={true} />
-          <EventCard id={3} name="Presentations" date="07/10/2024" image="event-image.avif" handleSubscribe={handleClick} isAvailable={true} />
+          {events ? (
+             events.map(event => (
+              <EventCard 
+                key={event.id} 
+                id={event.id} 
+                name={event.name} 
+                date={event.date} 
+                image={event.image} 
+                handleSubscribe={handleClick} 
+                isAvailable={event.isAvailable}
+              />
+            ))
+          ) : (
+            <p>Without new events</p>
+          )}
         </div>
       </div>
     </>
