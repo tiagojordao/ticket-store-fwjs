@@ -1,11 +1,11 @@
 'use client';
 
 export type Event = {
-  id: number,
+  id: string,
   name: string,
   date: string,
   image: string,
-  handleSubscribe: (id: number) => void;
+  handleSubscribe: (id: string) => void;
   isAvailable: boolean
 }
 
