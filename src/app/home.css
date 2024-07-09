@@ -3,3 +3,9 @@
     background-position: center;
     background-size: cover;
 }
+
+.home__cover__header {
+    background-image: url("../../public/abstract-background.jpg");
+    background-position: top;
+    background-size: cover;
+}

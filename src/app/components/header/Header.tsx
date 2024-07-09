@@ -1,6 +1,8 @@
+import "../../home.css";
+
 export default function Header() {
     return (
-        <nav className="w-full fixed top-0 right-0 z-50">
+        <nav className="w-full sticky top-0 right-0 z-50 home__cover__header">
             <div className="content flex justify-between items-center border-b-[.1px] border-white/30 px-5">
                 <span>
                     <img src="./ticket.svg" height="100" width="100" alt="Logo Image" />
