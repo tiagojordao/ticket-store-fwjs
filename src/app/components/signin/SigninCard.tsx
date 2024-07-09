@@ -6,16 +6,14 @@ export default function SigninCard() {
                 <input type="email" name="Email" id="email" placeholder="Email" className="
                     py-2 
                     px-2 
-                    w-full 
-                    text-black/70 
+                    w-full
                     border-2 
                     rounded" 
                 />
                 <input type="password" name="password" id="password" placeholder="Password" className="
                     py-2 
                     px-2 
-                    w-full 
-                    text-black/70 
+                    w-full
                     border-2 
                     rounded
                     mt-1

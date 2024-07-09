@@ -1,5 +1,7 @@
 export default function Events() {
     return (
-        <p>Events Page!</p>
+        <div className="w-full grow mt-20">
+            <p>Events Page!</p>
+        </div>
     );
 }
