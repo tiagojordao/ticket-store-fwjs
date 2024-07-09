@@ -13,7 +13,7 @@ export default function Home() {
 
   const [events, setEvents] = useState<EventModel[]>();
 
-  const handleClick = (id: number) => {
+  const handleClick = (id: string) => {
     alert(`Button clicked in ChildComponent with ID: ${id}`);
   };
 
