@@ -19,6 +19,18 @@ export const authenticate = async (email: string, password: string) => {
     }
 };
 
+export const createUsers = async (name: string, email: string, password: string) => {
+  return await axios.post(`${API_URL}/user`, {name, email, password})
+  .then(response => {
+    return response.data;
+  })
+  .catch(error => {
+    console.error('Error fetching posts:', error);
+    throw error;
+  });
+}
+
+
 export const getEvents = async () => {
     return await axios.get(`${API_URL}/events`)
     .then(response => {
