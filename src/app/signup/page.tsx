@@ -3,7 +3,7 @@ import "../home.css";
 
 export default function Signup() {
     return (
-        <div className="home__cover signin flex items-center grow justify-center h-lvh w-full">
+        <div className="home__cover signin flex items-center grow justify-center w-full">
             <SignupCard />
         </div>
     );

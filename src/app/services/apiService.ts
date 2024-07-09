@@ -6,12 +6,13 @@ export const authenticate = async (email: string, password: string) => {
     try {
         return await axios.get(`${API_URL}/user`)
         .then(response => {
-            return response.data.array.forEach((element: { email: string; password: string; }) => {
-                if(element.email === email) {
-                    if(element.password === password) {
-                        return element
-                    }
+            return response.data.find((user: { password: string, email: string }) => {
+              if(user.email === email) {
+                if(user.password === password) {
+                  return user;
                 }
+                return (alert("Wrong Password!"));
+              }
             });
         })
     } catch(error) {
