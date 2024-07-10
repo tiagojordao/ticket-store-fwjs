@@ -20,6 +20,36 @@ export const authenticate = async (email: string, password: string) => {
     }
 };
 
+export const areUserInscribed = async (userId: string, eventId: string) => {
+  return await axios.get(`${API_URL}/userEvents`)
+  .then(response => {
+    return response.data.find((userEvent: { userId: string, eventId: string }) => {
+      if(userEvent.userId === userId && userEvent.eventId === eventId)
+        return userEvent;
+    })
+  }).catch((error: any) => {
+    throw error;
+  });
+};
+
+export const subscribeEvent = async (userId: string, eventId: string) => {
+  const areUserAlreadyInscribed = await areUserInscribed(userId, eventId);
+
+  if(areUserAlreadyInscribed) {
+    alert("User already inscribed in this event!");
+    return "User already inscribed in this event!";
+  }
+
+  return await axios.post(`${API_URL}/userEvents`, {userId, eventId})
+  .then((response) => {
+    alert("You are now subscribed!");
+    return response.data;
+  }).catch((error) => {
+      console.log("Can't substribe on Event!");
+      throw error;
+  });
+};
+
 export const createUsers = async (name: string, email: string, password: string) => {
   return await axios.post(`${API_URL}/user`, {name, email, password})
   .then(response => {
@@ -29,7 +59,7 @@ export const createUsers = async (name: string, email: string, password: string)
     console.error('Error fetching posts:', error);
     throw error;
   });
-}
+};
 
 
 export const getEvents = async () => {
@@ -41,4 +71,4 @@ export const getEvents = async () => {
       console.error('Error fetching posts:', error);
       throw error;
     });
-}
+};
