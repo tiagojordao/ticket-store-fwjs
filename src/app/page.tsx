@@ -13,10 +13,6 @@ export default function Home() {
 
   const [events, setEvents] = useState<EventModel[]>();
 
-  const handleClick = (id: string) => {
-    alert(`Button clicked in ChildComponent with ID: ${id}`);
-  };
-
   useEffect(() => {
     const getData = () => {
       getEvents()
@@ -64,8 +60,7 @@ export default function Home() {
                 id={event.id} 
                 name={event.name} 
                 date={event.date} 
-                image={event.image} 
-                handleSubscribe={handleClick} 
+                image={event.image}
                 isAvailable={event.isAvailable}
               />
             ))
