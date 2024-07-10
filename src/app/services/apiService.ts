@@ -50,6 +50,37 @@ export const subscribeEvent = async (userId: string, eventId: string) => {
   });
 };
 
+export const listEventsByUserId = async (userId: string) => {
+  let idEventsList: any[] = [];
+  let events: any[] = [];
+
+  idEventsList =  await axios.get(`${API_URL}/userEvents`)
+  .then(response => {
+    return response.data.filter((userEvent: { userId: string, eventId: string }) => {
+      return (userEvent.userId === userId);
+    })
+  }).catch((error: any) => {
+    throw error;
+  });
+  
+  events =  await axios.get(`${API_URL}/events`)
+  .then((response) => {
+     return response.data;
+  }).catch((error: any) => {
+    throw error;
+  });
+
+  let list: any[] = [];
+  idEventsList.forEach((userEvent: { eventId: string }) => {
+    events.forEach((event: { id: string }) => {
+      if(userEvent.eventId === event.id) {
+        list.push(event);
+      }
+    });
+  });
+  return list;
+};
+
 export const createUsers = async (name: string, email: string, password: string) => {
   return await axios.post(`${API_URL}/user`, {name, email, password})
   .then(response => {
