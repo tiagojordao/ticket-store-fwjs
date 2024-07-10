@@ -1,14 +1,14 @@
 'use client';
 
+import { subscribeEvent } from "@/app/services/apiService";
 import { cookiesList } from "@/app/utils/cookies";
 import { useCookies } from "react-cookie";
 
 export type Event = {
-  id: number | string,
+  id: string,
   name: string,
   date: string,
   image: string,
-  handleSubscribe: (id: number | string) => void;
   isAvailable: boolean
 }
 
@@ -27,7 +27,7 @@ export default function EventCard(props: Event) {
           </div>
           <div className="flex flex-col justify-center">
             <button className={`hover:bg-rose-800 rounded text-white py-2 px-2 w-full ${ cookies?.['user-id'] ? ("bg-rose-600") : ("bg-black/10 pointer-events-none")}`}
-              onClick={() => props.handleSubscribe(props.id)}
+              onClick={() => subscribeEvent(cookies?.['user-id'] , props.id)}
             >
               SUBSCRIBE
             </button>
