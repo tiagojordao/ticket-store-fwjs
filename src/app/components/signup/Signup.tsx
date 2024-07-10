@@ -20,7 +20,7 @@ export default function SignupCard() {
     }
 
     return (
-        <div className="signin__card bg-transparent max-w-80 w-full rounded p-6">
+        <div className="secondary__background signin__card bg-transparent max-w-80 w-full rounded p-6">
         <h2 className="text-xl text-white text-center mb-5">SIGN UP</h2>
         <form onSubmit={onSubmit} className="flex gap-2 flex-col">
             <input type="text" name="name" id="name" placeholder="Name" className="

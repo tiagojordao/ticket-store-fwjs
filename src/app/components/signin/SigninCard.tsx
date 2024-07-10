@@ -26,7 +26,7 @@ export default function SigninCard() {
     };
 
     return (
-        <div className="signin__card bg-transparent max-w-80 w-full rounded p-6">
+        <div className="secondary__background signin__card bg-transparent max-w-80 w-full rounded p-6">
             <h2 className="text-xl text-white text-center mb-5">SIGN IN</h2>
             <form id="signInForm" action={"/"} method="post">
                 <input type="email" name="Email" id="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className="

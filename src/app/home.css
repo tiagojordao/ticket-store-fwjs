@@ -9,3 +9,9 @@
     background-position: top;
     background-size: cover;
 }
+
+.secondary__background {
+    background-image: url('../../public/background-v2.jpg');
+    background-position: bottom right;
+    background-size: cover;
+}

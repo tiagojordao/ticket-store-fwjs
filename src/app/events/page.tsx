@@ -24,7 +24,7 @@ export default function Events() {
       }, []);
 
     return (
-        <div className="w-full grow pt-20 h-lvh">
+        <div className="w-full grow pt-20 grow">
             <div className="content">
                 <h1 className="home__event-title font-bold text-2xl mb-10">All Events</h1>
                 <div className="w-full grid gap-2 justify-items-center mb-10">
