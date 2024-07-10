@@ -50,6 +50,20 @@ export const subscribeEvent = async (userId: string, eventId: string) => {
   });
 };
 
+export const unsubscribeEvent = async (userId: string, eventId: string) => {
+  const userEvent = await axios.get(`${API_URL}/userEvents`)
+  .then(response => {
+    return response.data.find((userEvent: { userId: string, eventId: string }) => {
+      if(userEvent.userId === userId && userEvent.eventId === eventId)
+        return userEvent;
+    })
+  }).catch((error: any) => {
+    throw error;
+  });
+
+  await axios.delete(`${API_URL}/userEvents/${userEvent.id}`);
+}
+
 export const listEventsByUserId = async (userId: string) => {
   let idEventsList: any[] = [];
   let events: any[] = [];
