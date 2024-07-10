@@ -65,7 +65,7 @@ export default function Home() {
               />
             ))
           ) : (
-            <p>Without new events</p>
+            ""
           )}
         </div>
       </div>
