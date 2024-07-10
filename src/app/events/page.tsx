@@ -9,10 +9,6 @@ import "../home.css";
 export default function Events() {
 
     const [events, setEvents] = useState<EventModel[]>();
-    
-    const handleClick = (id: number | string) => {
-        alert(`Button clicked in ChildComponent with ID: ${id}`);
-    };
 
     useEffect(() => {
         const getData = () => {
@@ -40,8 +36,7 @@ export default function Events() {
                         id={event.id} 
                         name={event.name} 
                         date={event.date} 
-                        image={event.image} 
-                        handleSubscribe={handleClick} 
+                        image={event.image}
                         isAvailable={event.isAvailable}
                     />
                     ))
